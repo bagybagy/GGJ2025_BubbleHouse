@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -25,6 +27,14 @@ public class Player : MonoBehaviour
     Animator playerAnimator;
     //走り判定用のbool
     bool isRun = false;
+
+    [SerializeField]
+    GameObject magicPrefab;
+    [SerializeField]
+    GameObject spawnerPoint;
+
+    [SerializeField]
+    Camera playerCamera; // プレイヤーが使用するカメラ
 
     void Start()
     {
@@ -101,6 +111,8 @@ public class Player : MonoBehaviour
     {
         rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         Debug.Log("jump");
+        //AnimatorにJumpのトリガーを送る
+        playerAnimator.SetTrigger("Jump");
     }
 
     // Move アクションによって呼び出されます。
@@ -116,5 +128,30 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Fire();
+        }
+    }
+
+    public void Fire()
+    {
+        playerAnimator.SetTrigger("Magic");
+    }
+
+    public void MagicCreate()
+    {
+        // カメラの中央から見ている方向を取得
+        Vector3 shootDirection = playerCamera.transform.forward;
+
+        //子オブジェクトとして魔法玉生成
+        GameObject magicShot = Instantiate(magicPrefab, spawnerPoint.transform.position, transform.rotation);
+
+        magicShot.transform.forward = shootDirection;
+
     }
 }
