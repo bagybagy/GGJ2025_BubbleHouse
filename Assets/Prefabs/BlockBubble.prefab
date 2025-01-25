@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8057617464299141436}
   - component: {fileID: 3290160749889691771}
   - component: {fileID: 3569778092762501768}
+  - component: {fileID: 852786646810335997}
   m_Layer: 0
   m_Name: BlockBubble
   m_TagString: Untagged
@@ -109,6 +110,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.82, y: 0.25, z: 0.82}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &852786646810335997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408614297362239180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364d8f19cd152e04ebd5c166f48efb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  sinkTime: 0.3
+  sinkAmount: 0.5
+  returnSpeed: 2
+  jumpWaitTime: 0.2
 --- !u!1 &6476451852134803360
 GameObject:
   m_ObjectHideFlags: 0
