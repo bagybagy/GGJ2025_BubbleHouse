@@ -17,6 +17,9 @@ public class StatusManager : MonoBehaviour
     [SerializeField] GameObject destroyEffect;  //撃破エフェクト
     [SerializeField] GameObject damageEffect;   //被弾エフェクト
 
+    float expRate = 1f;     // 初期EXP = Lv
+    float healRate = 0.05f; // アイテム取得時の回復率5％
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +31,7 @@ public class StatusManager : MonoBehaviour
     }
 
     // 被ダメージ時の処理
-    public void Damage(int baseDamage, float takeCrit, Vector3 attackPoint)
+    public void Damage(int baseDamage, Vector3 attackPoint)
     {
         Debug.Log("damage");
         float finalDamage;  // 計算後の最終ダメージ
@@ -84,6 +87,35 @@ public class StatusManager : MonoBehaviour
     public int GetDamageAmount()
     {
         return attackDamage;
+    }
+
+    public void IncreaseExp(float amount)
+    {
+        expRate += amount;
+        HPHeal();
+        expGageUpdateUI();
+
+        // ログ (デバッグ用)
+        Debug.Log($"Expが {amount} 増加しました。現在のExp: {expRate}");
+    }
+
+    private void HPHeal()
+    { 
+        // HP回復用関数
+        if (hp < maxHp)
+        {
+            hp += (int)(maxHp * healRate);
+            HPGageUpdateUI();
+        }
+    }
+
+    private void expGageUpdateUI()
+    {
+        // UIManager にexp更新を通知
+        if (this.gameObject.CompareTag("Player")) // プレイヤーの場合にのみUI更新
+        {
+            UIManager.Instance.UpdateExpBar(expRate, 10f);  // 今は仮にマジックナンバー10f、今後Critボーダー超える度に更新したい
+        }
     }
 
 }

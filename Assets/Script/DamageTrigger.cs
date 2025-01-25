@@ -32,7 +32,6 @@ public class DamageTrigger : MonoBehaviour
 
 
             int damageAmount = 1; // デフォルトのダメージ量
-            float critAmount = 0f; // デフォルトのダメージ量
 
             // 親の StatusManager にダメージを通知
             if (statusManager != null)
@@ -44,7 +43,7 @@ public class DamageTrigger : MonoBehaviour
                 }
 
                 // ダメージ量を処理関数に送る
-                statusManager.Damage(damageAmount, critAmount, attackPoint);
+                statusManager.Damage(damageAmount,attackPoint);
 
                 // ノックバック処理
                 ApplyKnockback(attackPoint);

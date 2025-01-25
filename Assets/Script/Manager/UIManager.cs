@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
+using System.Xml.Linq;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class UIManager : MonoBehaviour
     GameObject clearUI;
     [SerializeField]
     Image hpGage;
+    [SerializeField]
+    Image expGage;
+    [SerializeField]
+    private TMP_Text expText;
 
     private void Awake()
     {
@@ -54,6 +60,15 @@ public class UIManager : MonoBehaviour
         // HPバーのFillAmountを更新
         hpGage.fillAmount = currentHP / maxHP;
         Debug.Log(hpGage.fillAmount);
+    }
+
+    public void UpdateExpBar(float currentExp, float borderExp)
+    {
+        // ExpバーのFillAmountを更新
+        expGage.fillAmount = currentExp / borderExp;
+
+        // 現在のレベル
+        expText.text = $"{(int)currentExp}";
     }
 
 }

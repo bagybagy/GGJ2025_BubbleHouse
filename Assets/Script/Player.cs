@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Camera playerCamera; // プレイヤーが使用するカメラ
 
+    [SerializeField]
+    MultiMagic multiMagic;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -156,5 +159,13 @@ public class Player : MonoBehaviour
 
         magicShot.transform.forward = shootDirection;
 
+    }
+
+    public void OnMultiMagic(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            multiMagic.MultiMagicLaser();
+        }
     }
 }
