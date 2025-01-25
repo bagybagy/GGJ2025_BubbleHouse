@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2078898695539541003}
   m_Layer: 0
   m_Name: EnemyShotPrefab
-  m_TagString: EnemyAtack
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
