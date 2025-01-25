@@ -60,6 +60,9 @@ public class Player : MonoBehaviour
             cameraForward.y = 0;
             cameraRight.y = 0;
 
+            // キャラクターの角速度をリセット
+            rigidbody.angularVelocity = Vector3.zero;
+
             // 正規化して、カメラの前方と右方向に基づいた移動ベクトルを計算
             Vector3 moveDirection = (cameraForward * moveInput.y + cameraRight * moveInput.x).normalized;
 
@@ -74,7 +77,7 @@ public class Player : MonoBehaviour
             rigidbody.linearVelocity = moveDirection * moveSpeed + new Vector3(0, rigidbody.linearVelocity.y, 0);
 
             // キャラクターを移動する方向に向かせるための処理
-            if (moveDirection != Vector3.zero)  // 何かしら移動が発生している場合のみ回転させる
+            if (moveDirection != Vector3.zero && rigidbody.linearVelocity.magnitude > 0.1f)  // 何かしら移動が発生している場合のみ回転させる
             {
                 // Quaternion.LookRotationは、指定された方向（moveDirection）を向くための回転を計算します。
                 // moveDirectionはカメラの向きに基づいた移動方向です。
