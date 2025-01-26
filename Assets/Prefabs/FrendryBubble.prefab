@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2747479914910031295}
   - component: {fileID: 8603508112449728804}
   - component: {fileID: 3341030165690224426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitCollider
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 6632639287522927778}
   m_Layer: 0
   m_Name: FrendryBubble
-  m_TagString: Untagged
+  m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

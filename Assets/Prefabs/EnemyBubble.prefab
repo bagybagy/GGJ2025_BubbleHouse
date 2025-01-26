@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 7520477074366948389}
   - component: {fileID: 2952713034157337254}
   - component: {fileID: 6632639287522927778}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,3 +243,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToDrop:
   - {fileID: 8625156792084060041, guid: b687e7b2c9e826545aa8c12720e310b1, type: 3}
+  - {fileID: 8625156792084060041, guid: e286d2b4820e8a74ab076b7f313d76be, type: 3}
