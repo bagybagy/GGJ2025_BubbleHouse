@@ -20,6 +20,12 @@ public class StatusManager : MonoBehaviour
     float expRate = 1f;     // 初期EXP = Lv
     float healRate = 0.05f; // アイテム取得時の回復率5％
 
+    // 読み取り専用のプロパティ
+    public float ExpRate
+    {
+        get { return expRate; }
+    }
+
     // Update is called once per frame
     void Update()
     {

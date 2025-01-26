@@ -34,10 +34,7 @@ public class Player : MonoBehaviour
     GameObject spawnerPoint;
 
     [SerializeField]
-    Camera playerCamera; // プレイヤーが使用するカメラ
-
-    [SerializeField]
-    MultiMagic multiMagic;
+    FireControllSystem fireControllSystem;
 
     void Start()
     {
@@ -144,28 +141,32 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Fire()
+    private void Fire()
     {
         playerAnimator.SetTrigger("Magic");
     }
 
     public void MagicCreate()
     {
-        // カメラの中央から見ている方向を取得
-        Vector3 shootDirection = playerCamera.transform.forward;
-
-        //子オブジェクトとして魔法玉生成
-        GameObject magicShot = Instantiate(magicPrefab, spawnerPoint.transform.position, transform.rotation);
-
-        magicShot.transform.forward = shootDirection;
-
+        fireControllSystem.LinearMagicShot();
     }
 
     public void OnMultiMagic(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            multiMagic.MultiMagicLaser();
+            MultiMagic();
         }
+    }
+
+    private void MultiMagic()
+    {
+        playerAnimator.SetTrigger("MultiMagic");
+    }
+
+    public void MultiMagicCreate()
+    {
+        Debug.Log("ml");
+        fireControllSystem.MultiMagicLaser();
     }
 }
