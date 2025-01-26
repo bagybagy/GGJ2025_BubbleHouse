@@ -121,6 +121,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9, y: 1.8, z: 2}
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!1 &6754203585472622490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4628635735996582659}
+  - component: {fileID: 6857493523587222178}
+  m_Layer: 0
+  m_Name: DropTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4628635735996582659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754203585472622490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5906571811783564729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6857493523587222178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754203585472622490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b5f59fbf72322479c139ad68cdf65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToDrop:
+  - {fileID: 3788555062537418835, guid: dc5b648e7a86a314186ce5c13f262ac3, type: 3}
+  - {fileID: 3788555062537418835, guid: dc5b648e7a86a314186ce5c13f262ac3, type: 3}
+  - {fileID: 3788555062537418835, guid: dc5b648e7a86a314186ce5c13f262ac3, type: 3}
 --- !u!1 &8625156792084060041
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +206,7 @@ Transform:
   - {fileID: 3923920102411663566}
   - {fileID: 7393346999613627228}
   - {fileID: 7104464176853978129}
+  - {fileID: 4628635735996582659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6580398311572986394
@@ -259,6 +308,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1590415177872986601, guid: 9ae6fb2227fa65145b8a13dda0fe6d38, type: 3}
   firePoint: {fileID: 3923920102411663590}
   fireCooldown: 2
+  target: {fileID: 0}
 --- !u!1001 &3848614257670887950
 PrefabInstance:
   m_ObjectHideFlags: 0

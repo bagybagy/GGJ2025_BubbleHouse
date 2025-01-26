@@ -26,5 +26,13 @@ public class PlayerAnimationEvent : MonoBehaviour
         }
     }
 
+    public void OnGameOver()
+    {
+        if (player != null)
+        {
+            player.GameOverUIShow();
+        }
+    }
+
 
 }

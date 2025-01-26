@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject clearUI;
     [SerializeField]
+    GameObject gameOverUI;
+    [SerializeField]
     Image hpGage;
     [SerializeField]
     Image expGage;
@@ -51,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-//        SceneLoader.Instance.LoadSceneWithFade("SampleScene");
+        SceneLoader.Instance.LoadSceneWithFade("StageScene");
     }
 
     // HPバーの更新メソッド
@@ -69,6 +71,22 @@ public class UIManager : MonoBehaviour
 
         // 現在のレベル
         expText.text = $"{(int)currentExp}";
+    }
+
+    public void GameOver()
+    {
+        // しんぐるとん化している影響でカメラリセットが必要
+        CameraManager.Instance.CameraReset();
+
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("gameOverUIが見つかりません");
+        }
+        
     }
 
 }

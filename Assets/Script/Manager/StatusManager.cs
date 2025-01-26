@@ -32,7 +32,23 @@ public class StatusManager : MonoBehaviour
         //hpが0以下なら、撃破エフェクトを生成してMainを破壊
         if (hp <= 0)
         {
-            DestoryMainObject();
+            BossNotifier bossNotifier = GetComponent<BossNotifier>();
+            if (bossNotifier != null) // このオブジェクトがボスの場合
+            {
+                bossNotifier.Defeat(); // ボス専用の処理を呼び出す
+            }
+
+            // プレイヤーが死んだときだけげーむオーバーそれ以外は破壊
+            Player player = GetComponent<Player>();
+            if (player != null)
+            {
+                player.PlayerDead();
+            }
+            else
+            {
+                DestoryMainObject();
+            }
+
         }
     }
 

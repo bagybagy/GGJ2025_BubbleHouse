@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject phase3Bubble;
     [SerializeField] GameObject phase4Bubble;
 
+    // ゲームクリアの状態を保持する変数
+    // クリアしたかどうかのフラグです
+    private bool isGameCleared = false;
+
     // シングルトンインスタンス
     public static GameManager Instance { get; private set; }
 
@@ -100,6 +104,9 @@ public class GameManager : MonoBehaviour
     }
     private void Phase1_Outro()
     {
+        // カメラをフェイズ2ドア用に一瞬変更、引数はフェイズ番号
+        CameraManager.Instance.SwitchToPhaseCamera(2);
+
         phase2Bubble.SetActive(true);
 
         if (BubbleManager.Instance.IsExplorationPhase == true)
@@ -130,6 +137,8 @@ public class GameManager : MonoBehaviour
     }
     private void Phase2_Outro()
     {
+        // カメラをフェイズ2ドア用に一瞬変更、引数はフェイズ番号
+        CameraManager.Instance.SwitchToPhaseCamera(3);
         phase3Bubble.SetActive(true);
 
         if (BubbleManager.Instance.IsExplorationPhase == true)
@@ -164,6 +173,8 @@ public class GameManager : MonoBehaviour
     }
     private void Phase3_Outro()
     {
+        // カメラをフェイズ2ドア用に一瞬変更、引数はフェイズ番号
+        CameraManager.Instance.SwitchToPhaseCamera(4);
         phase4Bubble.SetActive(true);
 
         if (BubbleManager.Instance.IsExplorationPhase == true)
@@ -191,6 +202,42 @@ public class GameManager : MonoBehaviour
     {
         // 処理があればここに記載
 
+    }
+
+    /// <summary>
+    /// ボスが倒された際に呼び出される関数
+    /// ゲームクリアの判定を行います
+    /// </summary>
+    public void NotifyBossDefeat()
+    {
+        // ゲームがすでにクリアされている場合、もう一度クリア判定を行わないようにします
+        if (isGameCleared)
+        {
+            return; // すでにゲームクリアになっている場合は、処理をスキップ
+        }
+
+        // ゲームクリア時の処理を開始
+        Debug.Log("Game Cleared!");  // ゲームクリアのログを表示
+
+        // ゲームクリア状態をtrueにして、二度とクリア処理を行わないようにする
+        isGameCleared = true;
+
+        // ゲームクリア時の追加処理（例: UI更新やシーン遷移など）
+        HandleGameClear();
+    }
+
+    /// <summary>
+    /// ゲームクリア時に実行する具体的な処理をまとめたメソッド
+    /// </summary>
+    private void HandleGameClear()
+    {
+        // ゲームクリア時に行いたい処理をここに書きます
+        Debug.Log("Congratulations! You have cleared the game!");
+        // クリアUIの呼び出し
+        UIManager.Instance.ActiveClearUI();
+
+        // 例: ゲームクリアのUIを表示したり、シーンを遷移させたりする処理
+        // SceneManager.LoadScene("GameClearScene"); // 例えば、ゲームクリア後に別のシーンに遷移する場合
     }
 
 }

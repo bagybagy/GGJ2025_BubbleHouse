@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7393346999613627228}
   - component: {fileID: 9189868899865433126}
   - component: {fileID: 5678942925770031999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +68,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: PlayerAttack
   knockbackForce: 5
+--- !u!1 &3215956600496111415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6003444639908362267}
+  - component: {fileID: 9032031367157770035}
+  m_Layer: 0
+  m_Name: DropTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6003444639908362267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215956600496111415}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5906571811783564729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9032031367157770035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215956600496111415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b5f59fbf72322479c139ad68cdf65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToDrop:
+  - {fileID: 3788555062537418835, guid: dc5b648e7a86a314186ce5c13f262ac3, type: 3}
+  - {fileID: 3788555062537418835, guid: dc5b648e7a86a314186ce5c13f262ac3, type: 3}
 --- !u!1 &5984974349104139016
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +205,7 @@ Transform:
   - {fileID: 7131058999255539406}
   - {fileID: 7393346999613627228}
   - {fileID: 7104464176853978129}
+  - {fileID: 6003444639908362267}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6580398311572986394

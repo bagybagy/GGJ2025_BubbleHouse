@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     FireControllSystem fireControllSystem;
 
+    [SerializeField] private bool deadFlag = false;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -168,5 +170,19 @@ public class Player : MonoBehaviour
     {
         Debug.Log("ml");
         fireControllSystem.MultiMagicLaser();
+    }
+
+    public void PlayerDead()
+    {
+        if (!deadFlag)
+        {
+            playerAnimator.SetTrigger("Dead");
+        }
+        deadFlag = true;
+
+    }
+    public void GameOverUIShow()
+    {
+        UIManager.Instance.GameOver();
     }
 }
