@@ -4950,7 +4950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426438766332720700, guid: c2745ab24aeb5094a8d1efd5b4d655ab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2580753945491719862, guid: c2745ab24aeb5094a8d1efd5b4d655ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10736,7 +10736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b7d136b2896ee4c8b99f7c9339456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 15
+  detectionRadius: 30
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
