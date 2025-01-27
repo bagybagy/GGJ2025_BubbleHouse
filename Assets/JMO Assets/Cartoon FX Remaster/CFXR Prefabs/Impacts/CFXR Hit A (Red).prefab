@@ -9576,6 +9576,7 @@ GameObject:
   - component: {fileID: 4021103657954561960}
   - component: {fileID: 4021103657954561941}
   - component: {fileID: 6814809631054717822}
+  - component: {fileID: 4591730978652906008}
   m_Layer: 0
   m_Name: CFXR Hit A (Red)
   m_TagString: Untagged
@@ -14523,8 +14524,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 705da5e749ce3b3499560caaaf8be134, type: 3}
   m_Resource: {fileID: 8300000, guid: 705da5e749ce3b3499560caaaf8be134, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.582
+  m_PlayOnAwake: 0
+  m_Volume: 0.716
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14608,6 +14609,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4591730978652906008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021103657954561961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9089700853055b47984d6cdad577d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seClip: {fileID: 8300000, guid: 705da5e749ce3b3499560caaaf8be134, type: 3}
+  pichiLow: 1
+  pichiHight: 1
+  seVolume: 0.5
 --- !u!1 &4311522845078898388
 GameObject:
   m_ObjectHideFlags: 0

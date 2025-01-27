@@ -7,6 +7,7 @@ public class ChangePichSEManager : MonoBehaviour
 
     [SerializeField] float pichiLow = 0.5f;
     [SerializeField] float pichiHight = 1.3f;
+    [SerializeField] float seVolume = 1.0f;
 
     void Start()
     {
@@ -23,7 +24,8 @@ public class ChangePichSEManager : MonoBehaviour
         // ランダムにピッチを変更（例: 1.0〜2.0の間で）
         audioSource.pitch = Random.Range(pichiLow, pichiHight);
 
-        // ピッチ変更後、効果音を再生
-        audioSource.PlayOneShot(seClip);
+        audioSource.volume = seVolume; // 任意の音量値
+        // PlayOneShot を使用しつつ音量を反映
+        audioSource.PlayOneShot(seClip, audioSource.volume);
     }
 }
