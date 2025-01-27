@@ -64,10 +64,10 @@ public class UIManager : MonoBehaviour
         Debug.Log(hpGage.fillAmount);
     }
 
-    public void UpdateExpBar(float currentExp, float borderExp)
+    public void UpdateExpBar(float currentExp)
     {
         // ExpバーのFillAmountを更新
-        expGage.fillAmount = currentExp / borderExp;
+        expGage.fillAmount = (currentExp * 10f) % 10 / 10f; // 少数桁のみゲージ反映
 
         // 現在のレベル
         expText.text = $"{(int)currentExp}";

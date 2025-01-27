@@ -32,11 +32,19 @@ public class Player : MonoBehaviour
     GameObject magicPrefab;
     [SerializeField]
     GameObject spawnerPoint;
-
+    // 攻撃用火器管制
     [SerializeField]
     FireControllSystem fireControllSystem;
-
+    // 死亡フラグ
     [SerializeField] private bool deadFlag = false;
+
+    // 地面判定用のRayの長さ
+    [SerializeField]
+    private float groundCheckDistance = 0.2f; // プレイヤーの足元から下に向けてレイを飛ばす距離
+
+    // ジャンプするために地面に接触しているかを判定するフラグ
+    [SerializeField]
+    private bool isGrounded;
 
     void Start()
     {
@@ -47,6 +55,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        CheckGrounded();
     }
 
     // 指定した速度で、このキャラクターを移動させます。
@@ -114,10 +123,32 @@ public class Player : MonoBehaviour
     // このキャラクターをジャンプさせます。
     public void Jump()
     {
-        rigidbody.AddForce(jumpForce, ForceMode.Impulse);
-        Debug.Log("jump");
-        //AnimatorにJumpのトリガーを送る
-        playerAnimator.SetTrigger("Jump");
+        if (isGrounded)
+        {
+            rigidbody.AddForce(jumpForce, ForceMode.Impulse);
+            playerAnimator.SetTrigger("Jump"); // アニメーションのトリガーをセット
+        }
+    }
+
+    // 足元にRayを飛ばして地面に接触しているかを確認する
+    private void CheckGrounded()
+    {
+        // 足元から少し上（例えば、足元から0.1f程度上）にRayを発射
+        Ray ray = new Ray(transform.position + Vector3.up * 0.1f, Vector3.down); // 足元少し上にRayを発射
+        RaycastHit hit;
+
+        // レイが地面（または指定したレイヤー）に当たったかを判定
+        if (Physics.Raycast(ray, out hit, groundCheckDistance))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) // "Ground"レイヤーに接触していれば
+            {
+                isGrounded = true; // 地面にいるのでジャンプ可能
+            }
+        }
+        else
+        {
+            isGrounded = false; // 地面にいない場合はジャンプ不可
+        }
     }
 
     // Move アクションによって呼び出されます。

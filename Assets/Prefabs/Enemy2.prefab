@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6003444639908362267}
   - component: {fileID: 9032031367157770035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DropTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7104464176853978129}
   - component: {fileID: 4091516626416731562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackCollider
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8126357645700868598}
   - component: {fileID: 8986983767288625703}
   - component: {fileID: 4751062754493981081}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,6 +274,8 @@ MonoBehaviour:
   attackDamage: 10
   destroyEffect: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
   damageEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  expRate: 1
+  healRate: 0.05
 --- !u!114 &8986983767288625703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,17 +359,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791232, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791234, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791236, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791238, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791240, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791242, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791244, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791246, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791248, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1022046882720791248, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1022046882720791250, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791250, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791252, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791254, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1022046882720791260, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
       propertyPath: m_Name
       value: TT_Ram_lvl3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791260, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022046882720791262, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1022046882720791262, guid: 558f51ca135bfa6478eab4d08a1d7b8e, type: 3}
       propertyPath: m_IsActive

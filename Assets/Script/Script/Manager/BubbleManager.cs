@@ -4,8 +4,8 @@ using UnityEngine;
 public class BubbleManager : MonoBehaviour
 {
     private int currentBubbleCount = 0; // 現在のBubble数
-    private bool isExplorationPhase = false; // 探索フェーズの制御フラグ
-    [SerializeField]
+    [SerializeField] private bool isExplorationPhase = false; // 探索フェーズの制御フラグ
+
     public bool IsExplorationPhase
     {
         get { return isExplorationPhase; }

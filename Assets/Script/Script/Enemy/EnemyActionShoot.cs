@@ -61,7 +61,7 @@ public class EnemyActionshoot : MonoBehaviour, IEnemyAction
         {
             // プレイヤーの位置を基準に方向を計算
             Vector3 directionToTarget = (target.position - transform.position).normalized;
-            directionToTarget.y = 0f; // 水平面だけで回転を制御（高さ方向は無視）
+            //directionToTarget.y = 0f; // 水平面だけで回転を制御（高さ方向は無視）
 
             // 方向がゼロでない場合（向くべき方向がある場合）
             if (directionToTarget != Vector3.zero)

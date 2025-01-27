@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class BubbleSEManager : MonoBehaviour
+public class ChangePichSEManager : MonoBehaviour
 {
     public AudioClip seClip;   // 再生する効果音のクリップ
     private AudioSource audioSource;
+
+    [SerializeField] float pichiLow = 0.5f;
+    [SerializeField] float pichiHight = 1.3f;
 
     void Start()
     {
@@ -18,7 +21,7 @@ public class BubbleSEManager : MonoBehaviour
     public void PlaySeWithChangingPitch()
     {
         // ランダムにピッチを変更（例: 1.0〜2.0の間で）
-        audioSource.pitch = Random.Range(0.5f, 1.3f);
+        audioSource.pitch = Random.Range(pichiLow, pichiHight);
 
         // ピッチ変更後、効果音を再生
         audioSource.PlayOneShot(seClip);

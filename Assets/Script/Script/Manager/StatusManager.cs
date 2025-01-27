@@ -17,8 +17,8 @@ public class StatusManager : MonoBehaviour
     [SerializeField] GameObject destroyEffect;  //撃破エフェクト
     [SerializeField] GameObject damageEffect;   //被弾エフェクト
 
-    float expRate = 1f;     // 初期EXP = Lv
-    float healRate = 0.05f; // アイテム取得時の回復率5％
+    [SerializeField] float expRate = 1f;     // 初期EXP = Lv
+    [SerializeField] float healRate = 0.05f; // アイテム取得時の回復率5％
 
     // 読み取り専用のプロパティ
     public float ExpRate
@@ -136,7 +136,7 @@ public class StatusManager : MonoBehaviour
         // UIManager にexp更新を通知
         if (this.gameObject.CompareTag("Player")) // プレイヤーの場合にのみUI更新
         {
-            UIManager.Instance.UpdateExpBar(expRate, 10f);  // 今は仮にマジックナンバー10f、今後Critボーダー超える度に更新したい
+            UIManager.Instance.UpdateExpBar(expRate);  // UI変更を通知
         }
     }
 
