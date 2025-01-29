@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text expText;
 
+    [SerializeField] GameObject pauseMenuUI;
+
     private void Awake()
     {
         // Awakeはオブジェクトが生成されるときに呼ばれるメソッドです
@@ -87,6 +89,11 @@ public class UIManager : MonoBehaviour
             Debug.Log("gameOverUIが見つかりません");
         }
         
+    }
+
+    public void SetPauseUI(bool isActive)
+    {
+        pauseMenuUI.SetActive(isActive);
     }
 
 }
