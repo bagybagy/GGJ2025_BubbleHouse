@@ -6,6 +6,11 @@ public class BubbleManager : MonoBehaviour
     private int currentBubbleCount = 0; // 現在のBubble数
     [SerializeField] private bool isExplorationPhase = false; // 探索フェーズの制御フラグ
 
+    // 他所からの参照用
+    public int CurrentBubbleCount
+    {
+        get { return currentBubbleCount; } 
+    }
     public bool IsExplorationPhase
     {
         get { return isExplorationPhase; }

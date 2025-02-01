@@ -26,6 +26,10 @@ public class StatusManager : MonoBehaviour
         get { return expRate; }
     }
 
+    // HP関連のプロパティ
+    public float Hp { get { return hp; } }
+    public float MaxHp { get {  return maxHp; } }
+
     // Update is called once per frame
     void Update()
     {

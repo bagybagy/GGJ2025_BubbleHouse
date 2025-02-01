@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -39,14 +40,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Cleared!");  // ゲームクリアのログを表示
 
         // ゲームクリア時の追加処理（例: UI更新やシーン遷移など）
-        HandleGameClear();
+        StartCoroutine(HandleGameClear());
     }
 
     /// <summary>
     /// ゲームクリア時に実行する具体的な処理をまとめたメソッド
     /// </summary>
-    private void HandleGameClear()
+    private IEnumerator HandleGameClear()
     {
+        //1秒後にクリア処理
+        yield return new WaitForSeconds(1f);
+
         // ゲームクリア時に行いたい処理をここに書きます
         Debug.Log("Congratulations! You have cleared the game!");
         // クリアUIの呼び出し

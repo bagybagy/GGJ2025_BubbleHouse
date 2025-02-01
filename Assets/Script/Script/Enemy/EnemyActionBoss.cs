@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
+using UnityEditor.ShaderKeywordFilter;
 
 public class EnemyActionBoss : MonoBehaviour, IEnemyAction
 {
+    // 突進系攻撃
     [SerializeField] Transform target;              // Playerの位置を指定
     [SerializeField] float dashSpeed = 10f;         // 一定の突進速度
     [SerializeField] float dashDuration = 1f;       // 突進の効果時間
@@ -16,10 +19,23 @@ public class EnemyActionBoss : MonoBehaviour, IEnemyAction
     [SerializeField]
     Collider attackCollider;
 
+    // バブルスポーン関係
+    [SerializeField] int bubbleSpawn = 5;
+    [SerializeField] float spawnInterval = 0.1f;
+    [SerializeField] float deltaSpawn = 1f;
+    [SerializeField] Transform bubbleSpawnPoint;
+    [SerializeField] GameObject bubblePrefab;
+    [SerializeField] float hpThreshold = 0.7f;
+
+    StatusManager statusManager;
+
     void Start()
     {
         // Rigidbodyコンポーネントの取得
         rb = GetComponent<Rigidbody>();
+
+        // 自身のStatusManagerを取得、HPによる管理に使う
+        statusManager = GetComponent<StatusManager>();
 
         // 追尾対象の取得（Playerを想定）
         target = GameObject.Find("Player").GetComponent<Transform>();
@@ -94,6 +110,13 @@ public class EnemyActionBoss : MonoBehaviour, IEnemyAction
 
         // 突進終了後、速度を0にする
         rb.linearVelocity = Vector3.zero;
+
+        if (statusManager.Hp < (statusManager.MaxHp * hpThreshold)) 
+        {
+            // バブル生成
+            BubbleSpawn();
+        }
+
         yield return new WaitForSeconds(dashCooldown); // 待機時間を設ける
 
         // 突進終了時の処理をリセット
@@ -123,7 +146,7 @@ public class EnemyActionBoss : MonoBehaviour, IEnemyAction
     void AttackColliderOn()
     {
         attackCollider.enabled = true;
-        Debug.Log("Attack c on");
+        // Debug.Log("Attack c on");
 
     }
 
@@ -131,7 +154,7 @@ public class EnemyActionBoss : MonoBehaviour, IEnemyAction
     void AttackColliderOff()
     {
         attackCollider.enabled = false;
-        Debug.Log("Attack c off");
+        // Debug.Log("Attack c off");
 
     }
 
@@ -139,5 +162,29 @@ public class EnemyActionBoss : MonoBehaviour, IEnemyAction
     {
         // 突進中かどうかを外部から確認できるようにする
         return isDashing;
+    }
+
+    private void BubbleSpawn()
+    {
+        // Bubble生成関数、BubbleManagerの現在数を見て、多すぎたら生成を行わない
+        if (BubbleManager.Instance != null)
+        {
+            if (BubbleManager.Instance.CurrentBubbleCount < 100)
+            {
+                // boidBubbleを生成
+                GameObject bossSpawnBoidBubble = Instantiate(bubblePrefab, bubbleSpawnPoint.position, transform.rotation);
+
+            }
+            else
+            {
+                Debug.Log("バブル上限に達しました");
+            }
+
+        }
+        else
+        {
+            Debug.Log("BubbleManagerが見つかりません");
+
+        }
     }
 }

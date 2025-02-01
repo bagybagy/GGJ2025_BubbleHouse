@@ -20,12 +20,9 @@ public class BoosFootSE : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("fff");
         // レイヤーマスクが、コライダーのレイヤーを含んでいるかを判定
         if ((groundLayer.value & (1 << other.gameObject.layer)) != 0)
         {
-            Debug.Log("Fff");
-
             PlayFootstep();
         }
     }

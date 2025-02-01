@@ -68,6 +68,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2021858299597297564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446979670084132877}
+  m_Layer: 0
+  m_Name: BubbleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446979670084132877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021858299597297564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2314618453469545999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5984974349104139016
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,11 +252,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainObject: {fileID: 8625156792084060041}
-  hp: 50
-  maxHp: 1
+  hp: 150
+  maxHp: 150
   attackDamage: 10
   destroyEffect: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
-  damageEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  damageEffect: {fileID: 725748389856807714, guid: 4067cc235b431ff48a0cd5848c7178ff, type: 3}
   expRate: 1
   healRate: 0.05
 --- !u!114 &8986983767288625703
@@ -275,6 +306,12 @@ MonoBehaviour:
   dashDuration: 1
   dashCooldown: 2
   attackCollider: {fileID: 4091516626416731562}
+  bubbleSpawn: 1
+  spawnInterval: 0.1
+  deltaSpawn: 1
+  bubbleSpawnPoint: {fileID: 1446979670084132877}
+  bubblePrefab: {fileID: 2895274811398899028, guid: 22929d4ddf4f95042b52cb2525e57f28, type: 3}
+  hpThreshold: 0.7
 --- !u!1001 &177314318676780756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,6 +454,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7762692904186717162, guid: 9009bdf43684f89498fc0f1def7da0e9, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 3037296233589971528}
     - target: {fileID: 8525065013235930045, guid: 9009bdf43684f89498fc0f1def7da0e9, type: 3}
       propertyPath: m_Name
       value: EnemyParts
@@ -1254,6 +1295,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 757796837208729429, guid: 46c16cadb106968479d7005bcf450d3c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7393346999613627228}
+    - targetCorrespondingSourceObject: {fileID: 757796837208729429, guid: 46c16cadb106968479d7005bcf450d3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446979670084132877}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6455958325222331667, guid: 46c16cadb106968479d7005bcf450d3c, type: 3}
       insertIndex: -1

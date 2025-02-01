@@ -12,7 +12,8 @@ public class PauseManager : MonoBehaviour
         if (context.started)
         {
             isPaused = !isPaused;
-            Time.timeScale = isPaused ? 0 : 1;
+            //boss‚Ì‘«ŠÖŒW‚ªƒoƒO‚é‚½‚ßATimeScale‚Í˜M‚é‚Ì‚ğˆê’†~
+            //Time.timeScale = isPaused ? 0 : 1;
 
             UIManager.Instance.SetPauseUI(isPaused);
         }
